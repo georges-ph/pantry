@@ -9,7 +9,8 @@ void main(List<String> args) async {
     print("Pantry Details: $pantryDetails");
 
     // Update pantry
-    final updatedPantry = await pantry.updatePantry("My Pantry", "This is my pantry description!");
+    final updatedPantry = await pantry.updatePantry(
+        "My Pantry", "This is my pantry description!");
     print("Updated Pantry: $updatedPantry");
 
     // Create or replace a basket
@@ -22,7 +23,8 @@ void main(List<String> args) async {
     print(newBasketResult);
 
     // Update basket content
-    final updatedBasketContent = await pantry.updateBasket(basketName, {"new_key": "new_value"});
+    final updatedBasketContent =
+        await pantry.updateBasket(basketName, {"new_key": "new_value"});
     print("Updated Basket Content: $updatedBasketContent");
 
     // Get basket content

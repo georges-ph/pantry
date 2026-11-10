@@ -1,7 +1,13 @@
 name: pantry
 description: Simplify your interaction with the Pantry storage API with this simple wrapper.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/georges-ph/pantry
+topics:
+  - pantry
+  - storage
+  - json
+  - api
+  - http
 
 environment:
   sdk: ^3.3.0
@@ -10,5 +16,5 @@ dependencies:
   http: ^1.2.1
 
 dev_dependencies:
-  lints: ^3.0.0
+  lints: ^6.0.0
   test: ^1.24.0

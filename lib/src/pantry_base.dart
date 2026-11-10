@@ -61,7 +61,8 @@ class Pantry {
   /// The basket will be created or replaced based on [basketName] using the [basketContent] map.
   ///
   /// Throws a [PantryException] when failed.
-  Future<String> newBasket(String basketName, Map<String, dynamic> basketContent) async {
+  Future<String> newBasket(
+      String basketName, Map<String, dynamic> basketContent) async {
     try {
       final response = await http.post(
         Uri.https("getpantry.cloud", "apiv1/pantry/$id/basket/$basketName"),
@@ -88,7 +89,8 @@ class Pantry {
   /// Returns the JSON decoded basket content as [Map].
   ///
   /// Throws a [PantryException] when failed.
-  Future<Map<String, dynamic>> updateBasket(String basketName, Map<String, dynamic> basketContent) async {
+  Future<Map<String, dynamic>> updateBasket(
+      String basketName, Map<String, dynamic> basketContent) async {
     try {
       final response = await http.put(
         Uri.https("getpantry.cloud", "apiv1/pantry/$id/basket/$basketName"),
@@ -137,13 +139,13 @@ class Pantry {
   /// Throws a [PantryException] when failed.
   Future<String> deleteBasket(String basketName) async {
     try {
-      final response = await http.get(
+      final response = await http.delete(
         Uri.https("getpantry.cloud", "apiv1/pantry/$id/basket/$basketName"),
         headers: {"Content-Type": "application/json"},
       );
 
       if (response.statusCode != 200) {
-        throw PantryException("Could not delete basket");
+        throw PantryException(response.body);
       }
 
       return "$basketName was removed from your Pantry!";

@@ -31,17 +31,21 @@ class PantryModel {
   factory PantryModel.fromMap(Map<String, dynamic> map) {
     return PantryModel(
       name: map['name'] != null ? map['name'] as String : null,
-      description: map['description'] != null ? map['description'] as String : null,
+      description:
+          map['description'] != null ? map['description'] as String : null,
       errors: map['errors'] != null ? List.from(map['errors']) : null,
-      notifications: map['notifications'] != null ? map['notifications'] as bool : null,
-      percentFull: map['percentFull'] != null ? map['percentFull'] as int : null,
+      notifications:
+          map['notifications'] != null ? map['notifications'] as bool : null,
+      percentFull:
+          map['percentFull'] != null ? map['percentFull'] as int : null,
       baskets: map['baskets'] != null ? List.from(map['baskets']) : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory PantryModel.fromJson(String source) => PantryModel.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory PantryModel.fromJson(String source) =>
+      PantryModel.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
